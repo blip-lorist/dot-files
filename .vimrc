@@ -3,6 +3,9 @@
 " Syntax highlighting
 syntax on
 
+" Set <leader> to space bar
+let mapleader = " "
+
 " Number lines visible
 set number
 
@@ -26,16 +29,29 @@ set expandtab
 " Abbreviations / aliases
 abbr pdb import pdb; pdb.set_trace()
 
-" Pathogen install
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'wincent/command-t'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Command-T keybindings
+let g:CommandTCancelMap='<Esc>'
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
