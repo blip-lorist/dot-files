@@ -1,9 +1,7 @@
-# Set colors
-export TERM='xterm-256color'
-PROMPT_COLOR='\e[38;5;97m'
-ALERT_COLOR='\e[1;37;41m'
-NO_COLOR='\e[0m'
-COMMAND_COLOR='\e[0;37m'
+#Set colors
+PROMPT_COLOR="$(tput setaf 4)"
+ALERT_COLOR="$(tput setaf 1)"
+COMMAND_COLOR="$(tput setaf 7)"
 
 # Display runtime of the last command in prompt
 # See: http://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
@@ -12,28 +10,27 @@ function timer_start {
 }
 
 function timer_stop {
-  timer_show=$(($SECONDS - $timer))
-  unset timer
+    timer_show=$(($SECONDS - $timer))
+    unset timer
 }
 
 trap 'timer_start' DEBUG
 
 if [ "$PROMPT_COMMAND" == "" ]; then
-  PROMPT_COMMAND="timer_stop"
+    PROMPT_COMMAND="timer_stop"
 else
-  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+    PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 fi
 
-# Fancy exit status
-exit_status()
-{
+# Display unsuccessful exit codes
+function exit_status {
     last_status=$?
     if [[ $last_status != 0 ]]; then
-        printf "$ALERT_COLOR[Exit: $last_status]$NO_COLOR "
+        echo "$ALERT_COLOR[Exit: $last_status]$PROMPT_COLOR"
     fi
 }
 
-PS1='$(exit_status)'"${PROMPT_COLOR}[last: ${timer_show}s] \D{%T}  \W ${COMMAND_COLOR}"
+PS1='${PROMPT_COLOR}$(exit_status)[last: ${timer_show}s] \D{%T} \W ${COMMAND_COLOR}'
 
 # Use vi mode for bash
 set -o vi
@@ -46,6 +43,7 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+# Aliases
 alias bundlewp='bundle --without production'
 alias ll='ls -lah'
 alias sandbox="cd ~/sandbox"
