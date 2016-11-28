@@ -3,8 +3,15 @@
 " Syntax highlighting
 syntax on
 
+" Syntastic - Use latest Ruby version
+let g:syntastic_ruby_mri_exec = '~/.rbenv/shims/ruby'
+
+
 " Set <leader> to space bar
 let mapleader = " "
+
+" Backspacing like I shouldn't
+set backspace=2
 
 " Number lines visible
 set number
@@ -21,13 +28,14 @@ set autoindent
 set smartindent
 
 " Soft tabs are 4 spaces
-set shiftwidth=4
-set softtabstop=4
-set tabstop=5
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 
 " Abbreviations / aliases
 abbr pdb import pdb; pdb.set_trace()
+abbr pry require 'pry'; binding.pry
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -38,8 +46,10 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
-Plugin 'wincent/command-t'
+Plugin 'tpope/vim-surround'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,3 +74,12 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Don't write backup if editing cron
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
+endif
+
+" NerdTREE shortcut
+map <C-n> :NERDTreeToggle<CR>
