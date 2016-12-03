@@ -23,15 +23,15 @@ set incsearch
 " Disable case-sensitive search
 set ic
 
-" Indentation
-set autoindent
-set smartindent
-
-" Soft tabs are 4 spaces
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+" Indentation and tab-space replacements
+set autoindent " always set autoindenting on"
+set smartindent " use smart indent if there is no indent file"
+set tabstop=2 " <tab> inserts 4 spaces"
+set softtabstop=2 " <BS> over an autoindent deletes 4 spaces."
+set smarttab " Handle tabs more intelligently"
+set expandtab " Use spaces, not tabs, for autoindent/tab key."
+set shiftwidth=2 " an indent level is 4 spaces wide."
+set shiftround " rounds indent to a multiple of shiftwidth"
 
 " Abbreviations / aliases
 abbr pdb import pdb; pdb.set_trace()
@@ -50,6 +50,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'elzr/vim-json'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
