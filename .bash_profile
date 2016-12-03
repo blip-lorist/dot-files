@@ -30,7 +30,7 @@ function exit_status {
     fi
 }
 
-PS1='${PROMPT_COLOR}$(exit_status)[last: ${timer_show}s] \D{%T} \W ${COMMAND_COLOR}'
+PS1='\[${PROMPT_COLOR}\]\[$(exit_status)\][last: ${timer_show}s] \D{%T} \W \[${COMMAND_COLOR}\]'
 
 # Use vi mode for bash
 set -o vi
@@ -43,18 +43,10 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-# Aliases
-alias bundlewp='bundle --without production'
-alias ll='ls -lah'
-alias sandbox="cd ~/sandbox"
-alias gs='git status'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gd='git diff'
-alias go='git checkout'
-alias gk='gitk --all&'
-alias gx='gitx --all'
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+source ~/.profile
+source ~/.bash_aliases
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
