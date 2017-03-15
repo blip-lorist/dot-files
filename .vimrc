@@ -51,6 +51,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-abolish'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
