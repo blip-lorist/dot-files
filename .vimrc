@@ -24,12 +24,12 @@ set incsearch
 set ic
 
 " Indentation and tab-space replacements
+set expandtab " Use spaces, not tabs, for autoindent/tab key."
 set autoindent " always set autoindenting on"
 set smartindent " use smart indent if there is no indent file"
 set tabstop=2 " <tab> inserts 4 spaces"
 set softtabstop=2 " <BS> over an autoindent deletes 4 spaces."
 set smarttab " Handle tabs more intelligently"
-set expandtab " Use spaces, not tabs, for autoindent/tab key."
 set shiftwidth=2 " an indent level is 4 spaces wide."
 set shiftround " rounds indent to a multiple of shiftwidth"
 
