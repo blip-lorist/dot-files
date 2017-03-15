@@ -30,7 +30,7 @@ purple=$(tput setaf 125)
 reset=$(tput sgr0)
 
 
-PS1='\[$purple\]$(exit_status)[last: ${timer_show}s] \D{%T} \W \[$reset\]'
+PS1='\[$purple\]$(exit_status)[last: ${timer_show}s] \D{%T} \W$(__git_ps1 " (%s)") \[$reset\]'
 
 # Use vi mode for bash
 set -o vi
@@ -63,6 +63,12 @@ if [ -f ~/.bash_aliases ]
   then
     source ~/.bash_aliases
 fi 
+
+if [ -f ~/.git_prompt.sh ] 
+  then
+    source ~/.git-prompt.sh
+fi 
+
 export HISTCONTROL=ignoredups:erasedups  # prevent dups
 shopt -s histappend # save history on shell exit
 
