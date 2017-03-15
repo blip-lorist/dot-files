@@ -26,8 +26,9 @@ function exit_status {
 }
 
 #Set colors
-purple=$(tput setaf 4)
+purple=$(tput setaf 125)
 reset=$(tput sgr0)
+
 
 PS1='\[$purple\]$(exit_status)[last: ${timer_show}s] \D{%T} \W \[$reset\]'
 
@@ -53,9 +54,15 @@ ssh() {
   fi
 }
 
-source ~/.profile
-source ~/.bash_aliases
+if [ -f ~/.profile ] 
+  then
+    source ~/.profile
+fi
 
+if [ -f ~/.bash_aliases ] 
+  then
+    source ~/.bash_aliases
+fi 
 export HISTCONTROL=ignoredups:erasedups  # prevent dups
 shopt -s histappend # save history on shell exit
 
