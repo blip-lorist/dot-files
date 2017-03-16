@@ -64,7 +64,7 @@ if [ -f ~/.bash_aliases ]
     source ~/.bash_aliases
 fi 
 
-if [ -f ~/.git_prompt.sh ] 
+if [ -f ~/.git-prompt.sh ] 
   then
     source ~/.git-prompt.sh
 fi 
