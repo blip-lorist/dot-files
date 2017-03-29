@@ -19,6 +19,7 @@ set number
 " Highlight search
 set hlsearch 
 set incsearch
+hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
 " Disable case-sensitive search
 set ic
