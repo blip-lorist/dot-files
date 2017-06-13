@@ -46,12 +46,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-surround'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-abolish'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'itchyny/lightline.vim'
 
 " Install new plugins with:
 " vim +PluginInstall +qall
@@ -59,16 +63,16 @@ Plugin 'tpope/vim-abolish'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Command-T keybindings
-let g:CommandTCancelMap='<Esc>'
+" Lightline recommended setting
+set laststatus=2
 
-" Syntastic recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"" Syntastic recommended settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " pylint
 set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
