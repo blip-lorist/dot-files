@@ -53,6 +53,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-abolish'
 
+" Install new plugins with:
+" vim +PluginInstall +qall
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
