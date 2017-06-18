@@ -56,6 +56,7 @@ Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-abolish'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Install new plugins with:
 " vim +PluginInstall +qall
