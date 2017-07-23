@@ -29,7 +29,24 @@ function exit_status {
 purple=$(tput setaf 125)
 reset=$(tput sgr0)
 
+# Load scripts if present
+optional_dependencies=(\
+~/.git-completion.bash \
+~/.git-prompt.sh \
+~/.profile \
+~/.bash_aliases \
+~/.bash_util_aliases \
+)
 
+for file in "${optional_dependencies[@]}"
+do
+  if [ -f $file ]
+    then
+      source $file
+  fi
+done
+
+# Prompt
 PS1='\[$purple\]$(exit_status)[last: ${timer_show}s] \D{%T} \W$(__git_ps1 " (%s)") \[$reset\]'
 
 # Use vi mode for bash
@@ -37,11 +54,6 @@ set -o vi
 
 # Disable flow control so I can use vim Control bindings
 stty -ixon -ixoff
-
-# Git completion
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
 
 # Update tmux pane with name of ssh connection
 ssh() {
@@ -53,21 +65,6 @@ ssh() {
     command ssh "$@"
   fi
 }
-
-if [ -f ~/.profile ] 
-  then
-    source ~/.profile
-fi
-
-if [ -f ~/.bash_aliases ] 
-  then
-    source ~/.bash_aliases
-fi 
-
-if [ -f ~/.git-prompt.sh ] 
-  then
-    source ~/.git-prompt.sh
-fi 
 
 export HISTCONTROL=ignoredups:erasedups  # prevent dups
 shopt -s histappend # save history on shell exit
