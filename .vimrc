@@ -6,6 +6,9 @@ syntax on
 " Syntastic - Use latest Ruby version
 let g:syntastic_ruby_mri_exec = '~/.rbenv/shims/ruby'
 
+" To break an annoying habit
+:highlight TrailingWhitespace ctermbg=red guibg=red
+:autocmd Syntax * syn match TrailingWhitespace /\s\+$\| \+\ze\t/
 
 " Set <leader> to space bar
 let mapleader = " "
