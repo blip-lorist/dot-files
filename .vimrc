@@ -3,9 +3,6 @@
 " Syntax highlighting
 syntax on
 
-" Syntastic - Use latest Ruby version
-let g:syntastic_ruby_mri_exec = '~/.rbenv/shims/ruby'
-
 " To break an annoying habit
 :highlight TrailingWhitespace ctermbg=red guibg=red
 :autocmd Syntax * syn match TrailingWhitespace /\s\+$\| \+\ze\t/
@@ -49,7 +46,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'scrooloose/syntastic'
 Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'ervandew/supertab'
@@ -69,14 +65,6 @@ filetype plugin indent on    " required
 
 " Lightline recommended setting
 set laststatus=2
-
-"" Syntastic recommended settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " pylint
 set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
