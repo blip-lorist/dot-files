@@ -3,6 +3,9 @@
 " Syntax highlighting
 syntax on
 
+" Magic vim-instant-markdown plugin
+filetype plugin on
+
 " To break an annoying habit
 :highlight TrailingWhitespace ctermbg=red guibg=red
 :autocmd Syntax * syn match TrailingWhitespace /\s\+$\| \+\ze\t/
@@ -38,30 +41,20 @@ set shiftround " rounds indent to a multiple of shiftwidth"
 abbr pdb import pdb; pdb.set_trace()
 abbr pry require 'pry'; binding.pry
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
+" Install with :PlugInstall
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdtree'
+Plug 'ajh17/VimCompletesMe'
+Plug 'tpope/vim-surround'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-abolish'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'w0rp/ale'
-Plugin 'scrooloose/nerdtree'
-" Plugin 'ervandew/supertab'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'tpope/vim-surround'
-Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-abolish'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-
-" Install new plugins with:
-" vim +PluginInstall +qall
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " Lightline recommended setting
 set laststatus=2
