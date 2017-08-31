@@ -1,14 +1,14 @@
-# Git
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-alias go='git checkout '
-
-# IP checks
+# BASH
+alias ll='ls -lah'
 alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"
 alias externalip="curl ipecho.net/plain ; echo"
 
-
-
+# GIT
+alias gs='git status'
+alias ga='git add'
+# sort branches by date asc
+alias gb='git branch --sort=committerdate'
+alias gc='git commit'
+# check for ruby breakpoints before push
+alias gp='if grep -r --exclude-dir={.git,tmp,log,coverage,public} -Hn binding.pry .; then echo Please remove breakpoints in the above files; else git push; fi'
+alias gd='git diff'
