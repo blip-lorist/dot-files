@@ -26,8 +26,8 @@ function exit_status {
 }
 
 #Set colors
-purple=$(tput setaf 125)
-reset=$(tput sgr0)
+reset=$(tput setaf 189)
+prompt_color=$(tput sgr0)
 
 # Load scripts if present
 optional_dependencies=(\
@@ -47,7 +47,7 @@ do
 done
 
 # Prompt
-PS1='\[$purple\]$(exit_status)[last: ${timer_show}s] \D{%T} \W$(__git_ps1 " (%s)") \[$reset\]'
+PS1='\[$prompt_color\]$(exit_status)[last: ${timer_show}s] \D{%T} \W$(__git_ps1 " (%s)") \[$reset\]'
 
 # Use vi mode for bash
 set -o vi
