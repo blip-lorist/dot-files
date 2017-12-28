@@ -20,7 +20,8 @@ alias externalip="curl ipecho.net/plain ; echo"
 # Shoutout to @rushton
 # log-book function, creates a template for working through problems.
 # Requires a folder called logbook in the home directory
-# Usage: lb <problem summary>
+# Usage: `lb <problem summary>`
+# or just `lb` if you've started a log book for the day
 function lb() {
     now=$(date '+%Y-%m-%d')
     if [[ $# -eq 1 ]]
