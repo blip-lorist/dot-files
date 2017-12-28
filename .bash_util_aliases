@@ -1,14 +1,45 @@
-# BASH
+# Git
 alias ll='ls -lah'
-alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"
-alias externalip="curl ipecho.net/plain ; echo"
-
-# GIT
 alias gs='git status'
 alias ga='git add'
-# sort branches by date asc
 alias gb='git branch --sort=committerdate'
 alias gc='git commit'
-# check for ruby breakpoints before push
 alias gp='if grep -r --exclude-dir={.git,tmp,log,coverage,public} -Hn binding.pry .; then echo Please remove breakpoints in the above files; else git push; fi'
 alias gd='git diff'
+alias go='git checkout'
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+#Ctags
+alias getctags='ctags -R -f ./.git/tags .'
+
+# IP checks
+alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"
+alias externalip="curl ipecho.net/plain ; echo"
+ 
+# Shoutout to @rushton
+# log-book function, creates a template for working through problems.
+# Requires a folder called logbook in the home directory
+# Usage: lb <problem summary>
+function lb() {
+    now=$(date '+%Y-%m-%d')
+    if [[ $# -eq 1 ]]
+    then
+        echo "$1" >> ~/logbook/$now.md
+        echo "===============================================" >> ~/logbook/$now.md
+        echo "Started: $(date '+%Y-%m-%d %H:%M:%S')" >> ~/logbook/$now.md
+        echo "### 1. Consider the problem you’re attempting to solve" >> ~/logbook/$now.md
+        echo "### 2. Describe your method for solving it" >> ~/logbook/$now.md
+        echo "### 3. Describe the process of carrying out the method" >> ~/logbook/$now.md
+        echo "### 4. Record what happened" >> ~/logbook/$now.md
+        echo "### 5. How could it be improved?" >> ~/logbook/$now.md
+        echo "Completed: <use: date '+%Y-%m-%d %H:%M:%S'>" >> ~/logbook/$now.md
+    elif [[ $# -gt 1 ]]
+    then
+        echo "Error: too many parameters"
+        echo "Usage: lb [<problem summary>]"
+        return 1
+    fi
+
+    vim ~/logbook/$now.md
+}
