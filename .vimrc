@@ -14,8 +14,11 @@ set foldlevel=2
 filetype plugin on
 
 " To break an annoying habit
-:highlight TrailingWhitespace ctermbg=red guibg=red
-:autocmd Syntax * syn match TrailingWhitespace /\s\+$\| \+\ze\t/
+:highlight TrailingWhitespace ctermbg=grey guibg=grey
+autocmd Syntax * syn match TrailingWhitespace /\s\+$\| \+\ze\t/
+
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 
 " Set <leader> to space bar
 let mapleader = " "
@@ -42,7 +45,6 @@ set tabstop=2 " <tab> inserts 4 spaces"
 set softtabstop=2 " <BS> over an autoindent deletes 4 spaces."
 set smarttab " Handle tabs more intelligently"
 set shiftwidth=2 " an indent level is 4 spaces wide."
-set shiftround " rounds indent to a multiple of shiftwidth"
 
 " Abbreviations / aliases
 abbr pdb import pdb; pdb.set_trace()
