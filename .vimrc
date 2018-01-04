@@ -62,6 +62,12 @@ Plug 'tpope/vim-abolish'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'shime/vim-livedown'
+
+" Ctags for gems
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
