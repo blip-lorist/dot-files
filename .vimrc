@@ -3,6 +3,13 @@
 " Syntax highlighting
 syntax on
 
+" Origami config
+" https://unix.stackexchange.com/questions/141097/how-to-enable-and-use-code-folding-in-vim
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 " Magic vim-instant-markdown plugin
 filetype plugin on
 
