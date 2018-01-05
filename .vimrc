@@ -13,12 +13,11 @@ set foldlevel=2
 " Magic vim-instant-markdown plugin
 filetype plugin on
 
-" To break an annoying habit
-:highlight TrailingWhitespace ctermbg=grey guibg=grey
-autocmd Syntax * syn match TrailingWhitespace /\s\+$\| \+\ze\t/
+" Remove trailing whitespace. Thanks @thenashfactor!
+autocmd BufWritePre * :%s/\s\+$//e
 
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Set <leader> to space bar
 let mapleader = " "
@@ -30,7 +29,7 @@ set backspace=2
 set number
 
 " Highlight search
-set hlsearch 
+set hlsearch
 set incsearch
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
