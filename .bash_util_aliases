@@ -16,15 +16,21 @@ alias getctags='ctags -R -f ./.git/tags .'
 # IP checks
 alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"
 alias externalip="curl ipecho.net/plain ; echo"
- 
+
 # Shoutout to @rushton
 # log-book function, creates a template for working through problems.
 # Requires a folder called logbook in the home directory
 # Usage: `lb <problem summary>`
-# or just `lb` if you've started a log book for the day
+# or just `lb` to open the latest logbook
 function lb() {
     now=$(date '+%Y-%m-%d')
-    if [[ $# -eq 1 ]]
+    # if no parameters provided and logbook entries exist, open the logbook
+    # with the maximum date.
+    if [[ $# -eq 0 && $(ls ~/logbook | grep "^[0-9].*md$" | wc -l) -gt 0 ]]
+    then
+        vim ~/logbook/$(ls ~/logbook | grep "^[0-9].*md$" | sort | tail -n1)
+        return 0
+    elif [[ $# -eq 1 ]]
     then
         echo "$1" >> ~/logbook/$now.md
         echo "===============================================" >> ~/logbook/$now.md
