@@ -36,6 +36,8 @@ optional_dependencies=(\
 ~/.profile \
 ~/.bash_aliases \
 ~/.bash_util_aliases \
+# https://gist.github.com/ddgenome/f13f15dd01fb88538dd6fac8c7e73f8c
+~/.aws-creds.sh \
 )
 
 for file in "${optional_dependencies[@]}"
