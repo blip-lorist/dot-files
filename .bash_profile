@@ -29,6 +29,10 @@ function exit_status {
 reset=$(tput setaf 189)
 prompt_color=$(tput sgr0)
 
+# Use vim as the default pager for
+# man navigation
+export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
+
 # Load scripts if present
 optional_dependencies=(\
 ~/.git-completion.bash \
