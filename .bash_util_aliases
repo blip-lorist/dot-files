@@ -17,6 +17,12 @@ alias getctags='ctags -R -f ./.git/tags .'
 alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"
 alias externalip="curl ipecho.net/plain ; echo"
 
+#Create gif from mov
+# mov2gif <input.mov> <output.gif> <max_width>
+function mov2gif() {
+  ffmpeg -i $1 -vf scale=$3:-1 -r 5 -f gif - | gifsicle -O3 -o $2
+}
+
 # Shoutout to @rushton
 # log-book function, creates a template for working through problems.
 # Requires a folder called logbook in the home directory
