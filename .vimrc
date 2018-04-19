@@ -89,5 +89,9 @@ if $VIM_CRONTAB == "true"
   set nowritebackup
 endif
 
+
 " NerdTREE shortcut
 map <C-n> :NERDTreeToggle<CR>
+
+com! FormatJSON %!python -m json.tool
+
