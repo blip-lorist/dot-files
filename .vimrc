@@ -95,3 +95,5 @@ map <C-n> :NERDTreeToggle<CR>
 
 com! FormatJSON %!python -m json.tool
 
+" Update javac class path to use Princeton Algorithms course path
+let g:ale_java_javac_classpath = "/usr/local/algs4/algs4.jar"
