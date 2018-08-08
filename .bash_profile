@@ -31,7 +31,11 @@ prompt_color=$(tput sgr0)
 
 # Use vim as the default pager for
 # man navigation
-export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
+# BSD tools (OS X)
+# export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
+# GNU tools (Ubuntu)
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
 
 # Load scripts if present
 optional_dependencies=(\
