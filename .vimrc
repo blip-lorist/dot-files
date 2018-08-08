@@ -16,6 +16,7 @@ filetype plugin on
 " Remove trailing whitespace. Thanks @thenashfactor!
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Whitespace for languages
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
@@ -93,6 +94,7 @@ endif
 " NerdTREE shortcut
 map <C-n> :NERDTreeToggle<CR>
 
+" Magical :FormatJSON
 com! FormatJSON %!python -m json.tool
 
 " Update javac class path to use Princeton Algorithms course path
