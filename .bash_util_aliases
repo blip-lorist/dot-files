@@ -1,4 +1,8 @@
+#Ctags
+alias genctags="ctags -R -f ./.git/tags"
+
 # Git
+alias gpull='git pull; genctags'
 alias ll='ls -lah'
 alias gs='git status'
 alias ga='git add'
@@ -9,9 +13,6 @@ alias gd='git diff'
 alias go='git checkout'
 alias gk='gitk --all&'
 alias gx='gitx --all'
-
-#Ctags
-alias getctags='ctags -R -f ./.git/tags .'
 
 # IP checks
 alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"

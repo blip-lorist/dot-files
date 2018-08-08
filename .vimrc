@@ -71,6 +71,9 @@ Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
+" Ctag path
+set tags=./.git/tags
+
 " Lightline recommended setting
 set laststatus=2
 
