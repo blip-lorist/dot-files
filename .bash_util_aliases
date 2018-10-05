@@ -1,6 +1,10 @@
 #Ctags
 alias genctags="ctags -R -f ./.git/tags"
 
+# Testing shortcuts
+alias unittest="python3 -m unittest -v"
+alias minitest="bundle exec rake test"
+
 # Git
 alias gpull='git pull; genctags'
 alias ll='ls -lah'
@@ -8,7 +12,7 @@ alias gs='git status'
 alias ga='git add'
 alias gb='git branch --sort=committerdate'
 alias gc='git commit'
-alias gp='if grep -r --exclude-dir={.git,tmp,log,coverage,public} -Hn binding.pry .; then echo Please remove breakpoints in the above files; else git push; fi'
+alias gpush='if grep -r --exclude-dir={.git,tmp,log,coverage,public} -Hn binding.pry .; then echo Please remove breakpoints in the above files; else git push; fi'
 alias gd='git diff'
 alias go='git checkout'
 alias gk='gitk --all&'
