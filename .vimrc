@@ -29,10 +29,11 @@ set backspace=2
 " Number lines visible
 set number
 
-" Highlight search
+" Highlight search and visual blocks
 set hlsearch
 set incsearch
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
+hi Visual ctermfg=black ctermbg=grey
 
 " Disable case-sensitive search
 set ic
@@ -99,6 +100,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Magical :FormatJSON
 com! FormatJSON %!python -m json.tool
+
+" OMG you can get vim to recognize your dotfiles
+set shellcmdflag=-ic
 
 " Update javac class path to use Princeton Algorithms course path
 let g:ale_java_javac_classpath = "/usr/local/algs4/algs4.jar:/home/loraine/algorithms-course/*"
