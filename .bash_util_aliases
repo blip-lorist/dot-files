@@ -5,6 +5,9 @@ alias genctags="ctags -R -f ./.git/tags"
 alias unittest="python3 -m unittest -v"
 alias minitest="bundle exec rake test"
 
+# CPU core count: does not work on MacOS
+alias cpus='cat /proc/cpuinfo | awk "/^processor/{print $3}" | wc -l'
+
 # Git
 alias gpull='git pull; genctags'
 alias ll='ls -lah'
