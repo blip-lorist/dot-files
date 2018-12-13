@@ -14,7 +14,8 @@ set foldlevel=2
 filetype plugin on
 
 " Remove trailing whitespace. Thanks @thenashfactor!
-autocmd BufWritePre * :%s/\s\+$//e
+let trim_filetype_banlist = ['markdown']
+autocmd BufWritePre * if index(trim_filetype_banlist, &ft) < 0 | :%s/\s\+$//e
 
 " Whitespace for languages
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
