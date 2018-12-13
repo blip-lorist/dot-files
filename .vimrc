@@ -30,11 +30,13 @@ set backspace=2
 " Number lines visible
 set number
 
-" Highlight search and visual blocks
+" Highlight search
 set hlsearch
 set incsearch
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
+hi ALEWarning ctermfg=grey ctermbg=DarkMagenta
 hi Visual ctermfg=black ctermbg=grey
+
 
 " Disable case-sensitive search
 set ic
