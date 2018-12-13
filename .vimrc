@@ -104,8 +104,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Magical :FormatJSON
 com! FormatJSON %!python -m json.tool
 
-" OMG you can get vim to recognize your dotfiles
-set shellcmdflag=-ic
-
 " Update javac class path to use Princeton Algorithms course path
 let g:ale_java_javac_classpath = "/usr/local/algs4/algs4.jar:/home/loraine/algorithms-course/*"
+
+" OMG you can get vim to recognize your dotfiles
+" This may have issues on Ubuntu
+" set shellcmdflag=-ic
