@@ -65,6 +65,7 @@ function lb() {
         return 0
     elif [[ $# -eq 1 ]]
     then
+        echo "" >> ~/logbook/$now.md
         echo "$1" >> ~/logbook/$now.md
         echo "===============================================" >> ~/logbook/$now.md
         echo "Started: $(date '+%Y-%m-%d %H:%M:%S')" >> ~/logbook/$now.md
