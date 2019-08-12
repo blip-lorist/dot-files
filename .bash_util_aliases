@@ -41,7 +41,7 @@ function copy() {
   cat "$1" |  xclip -selection clipboard
 }
 
-# graphviz: open dot file as png
+# graphviz: generate and open dot file as png
 function graphviz() {
   # Arg validation
   if [ -z "$1" ]
