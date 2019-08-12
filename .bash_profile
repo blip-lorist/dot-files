@@ -41,7 +41,7 @@ export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu
 optional_dependencies=(\
 ~/.git-completion.bash \
 ~/.git-prompt.sh \
-~/.bash_aliases \
+~/.bash_private_aliases \
 ~/.bash_util_aliases \
 # https://gist.github.com/ddgenome/f13f15dd01fb88538dd6fac8c7e73f8c
 ~/.aws-creds.sh \
