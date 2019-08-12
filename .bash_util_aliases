@@ -41,6 +41,29 @@ function copy() {
   cat "$1" |  xclip -selection clipboard
 }
 
+# graphviz: open dot file as png
+function graphviz() {
+  # Arg validation
+  if [ -z "$1" ]
+    then
+      echo "No argument supplied"
+      return 1
+  fi
+
+  if [ ! -f $1 ]; then
+    echo "File $1 not found!"
+    return 1
+  fi
+
+  png_filename="$(echo $1 | sed 's/\.dot/\.png/g')"
+
+  # Generate a .png file from the .dot file
+  dot -Tpng "$1" -o "$png_filename"
+
+  # Open in image viewer
+  eog "$png_filename" &
+}
+
 # IP checks
 alias localip="ifconfig | grep 'inet ' | grep -Fv 127.0.0.1 | awk '{print \$2}'"
 alias externalip="curl ipecho.net/plain ; echo"
