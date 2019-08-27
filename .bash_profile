@@ -25,10 +25,6 @@ function exit_status {
     fi
 }
 
-#Set colors
-reset=$(tput setaf 189)
-prompt_color=$(tput sgr0)
-
 # Use vim as the default pager for
 # man navigation
 # BSD tools (OS X)
@@ -42,7 +38,7 @@ optional_dependencies=(\
 ~/.git-completion.bash \
 ~/.git-prompt.sh \
 ~/.bash_private_aliases \
-~/.bash_util_aliases \
+~/.bash_aliases \
 # https://gist.github.com/ddgenome/f13f15dd01fb88538dd6fac8c7e73f8c
 ~/.aws-creds.sh \
 )
@@ -56,7 +52,7 @@ do
 done
 
 # Prompt
-PS1='\[$prompt_color\]$(exit_status)[last: ${timer_show}s] \D{%T} \W$(__git_ps1 " (%s)") \[$reset\]'
+PS1='$(exit_status)[last: ${timer_show}s] \D{%T} \W$(__git_ps1 " (%s)") \[$reset\]'
 
 # Use vi mode for bash
 set -o vi
