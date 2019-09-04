@@ -108,3 +108,14 @@ function lb() {
 
     vim ~/logbook/$now.md
 }
+
+# Dynamically detect two monitor names and mirror
+# Used on Ubuntu 18.06
+# Useage:  mirror
+function mirror() {
+  # detect monitors
+  monitors=$(xrandr | grep " connected"  | grep "mm x" | awk -F " " '{print $1}')
+  first_monitor=$(echo $monitors | awk -F " " '{print $1}')
+  second_monitor=$(echo $monitors | awk -F " " '{print $2}')
+  xrandr --output $first_monitor --same-as $second_monitor
+}
